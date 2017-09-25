@@ -1,0 +1,9 @@
+# Compiled python modules.
+*.pyc
+# Compiled libraries
+*.so
+*.o
+# Ignore checkpoints created (especially for the examples)
+*.ipynb_checkpoints
+#
+*.swp
