@@ -16,9 +16,15 @@ The get_periods scripts were used in the paper mentioned above to compare period
 Generating you own LSST-like templates using OpSim and CatSim
 -------------------------------------------------------------
 
-The template files were built using the create_obj script. If you want to run the script you will need to install the LSST stack. To install the LSST stack first setup the core packages by following steps 1 and 2 at https://confluence.lsstcorp.org/display/SIM/Catalogs+and+MAF (Installing from Source). 
+The template files were built using the create_obj script. If you want to run the script you will need to install the LSST stack. To install the LSST stack first setup the core packages by following steps 1 and 2 (Installing from Source) at 
 
-After that you will need to download the **Reference simulated survey** from https://www.lsst.org/scientists/simulations/opsim/opsim-survey-data. Download and extract the minion_2016 SQLite DB and point the opsimdb variable in create_obj to it.
+https://confluence.lsstcorp.org/display/SIM/Catalogs+and+MAF
+
+After that you will need to download the **Reference simulated survey** from 
+
+https://www.lsst.org/scientists/simulations/opsim/opsim-survey-data 
+
+Download and extract the minion_2016 SQLite DB and point the opsimdb variable in create_obj to it.
 
 To run the script::
 
@@ -27,7 +33,9 @@ To run the script::
     setup sims_catUtils -t sims
     create_obj RRL
 
-For more details please see http://confluence.lsstcorp.org/display/SIM/Catalog+Simulations+Documentation. 
+For more details please see 
+
+http://confluence.lsstcorp.org/display/SIM/Catalog+Simulations+Documentation. 
 
 
 
