@@ -9,8 +9,7 @@ if len(argv) < 4:
     raise ValueError("Please run as python get_periods_QMI.py OBJ hm hp, where OBJ = RRab, RRc, CEPH or EB, and hm/hp are the kernel sizes")
 varstar = argv[1]
 
-LSST_path = '/home/phuijse/Data/LSST/'
-with open(join(LSST_path, 'templates', varstar+'_LSST.pkl'), "rb") as f:
+with open(join('templates', varstar+'_LSST.pkl'), "rb") as f:
     lc_data, lc_info, lc_per = pickle.load(f, encoding='latin1')
 obj_id = sorted(list(lc_data.keys()))
 
@@ -22,8 +21,9 @@ hmm, hp = float(argv[2]), float(argv[3])
 
 Npoints = [12, 24, 36, 48]
 filters = [b'u', b'g', b'r', b'i', b'z']
+Nrealizations = 5
 methods = [perEU, perCS]
-res = np.zeros(shape=(len(obj_id), 5, len(Npoints), len(filters)+1, len(methods)))
+res = np.zeros(shape=(len(obj_id), Nrealizations, len(Npoints), len(filters)+1, len(methods)))
 start_time = time.time()
 rng = np.random.RandomState(0)
 
@@ -31,9 +31,9 @@ for idx in range(len(obj_id)):
     print(idx)
     # Get a template
     data = lc_data[obj_id[idx]]
-    for idx_r in range(res.shape[1]):
+    for idx_r in range(Nrealizations):
         # Draw Gaussian noise N(0, 1)
-        white_noise = rng.randn(48, 5)
+        white_noise = rng.randn(Npoints[-1], len(filters))
         for idx_n, N in enumerate(Npoints):
             for idx_p, method in enumerate(methods):
                 per_sum = 0.0

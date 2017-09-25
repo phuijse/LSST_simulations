@@ -6,6 +6,9 @@ import re
 from sys import argv
 import pickle
 
+# Set the location of minion_1016 database
+opsimdb = "/home/phuijse/Data/minion_1016_sqlite.db"
+
 if len(argv) < 2:
     raise ValueError("Please run as python create_obj.py OBJ, where OBJ = RRab, RRc, CEPH or EB")
 
@@ -25,9 +28,6 @@ elif OBJ == 'EB':
 else:
     raise ValueError("Wrong object identifier, try RRab, RRc, CEPH or EB")
 
-# Set the location of minion_1016 database
-opsimdb = os.path.join("/home/phuijse/Data", "LSST")
-opsimdb = os.path.join(opsimdb, "minion_1016_sqlite.db")
 
 from lsst.sims.catUtils.utils import StellarLightCurveGenerator
 from lsst.sims.catalogs.db import fileDBObject
